@@ -3,8 +3,7 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const plumber = require('gulp-plumber');
-const stylus = require('gulp-stylus');
-const poststylus = require('poststylus');
+const sass = require('gulp-sass');
 const rucksack = require('rucksack-css');
 const prefixer = require('autoprefixer');
 const fontMagician = require('postcss-font-magician');
@@ -31,8 +30,8 @@ const srcApp = {
   js: [
     'src/js/**/*.js'
   ],
-  css: 'src/styl/**/*.styl',
-  styl: 'src/styl/style.styl',
+  css: 'src/sass/**/*.sass',
+  sass: 'src/sass/style.sass',
   html: 'src/pug/*.pug',
   icons: 'src/icons/*',
   svg: 'src/svg/**/*',
@@ -42,13 +41,13 @@ const srcApp = {
 };
 
 const buildApp = {
-  build: 'build/**/*',
-  js: 'build/js/',
-  css: 'build/css/',
-  html: 'build/',
-  img: 'build/img',
-  svg: 'build/svg',
-  icons: 'build/icons'
+  build: 'dist/**/*',
+  js: 'dist/js/',
+  css: 'dist/css/',
+  html: 'dist/',
+  img: 'dist/img',
+  svg: 'dist/svg',
+  icons: 'dist/icons'
 };
 
 let dataJson = {};
@@ -57,23 +56,11 @@ let files = [];
 gulp.task('clean', () => {
   return del(buildApp.build);
 });
-
 gulp.task('css', () => {
-  return gulp.src(srcApp.styl)
+  return gulp.src(srcApp.sass)
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(stylus({
-      use: [
-        rupture(),
-        poststylus([
-          lost(),
-          fontMagician(),
-          rucksack(),
-          prefixer()
-        ])
-      ],
-      compress: false
-    }))
+    .pipe(sass())
     .pipe(gcmq())
     .pipe(cssnano())
     .pipe(sourcemaps.write('.'))
@@ -81,24 +68,12 @@ gulp.task('css', () => {
 });
 
 gulp.task('styleguide', () => {
-  return gulp.src(srcApp.styl)
+  return gulp.src(srcApp.sass)
     .pipe(plumber())
-    .pipe(stylus({
-      use: [
-        rupture(),
-        poststylus([
-          lost(),
-          fontMagician(),
-          rucksack({
-            autoprefixer: true
-          })
-        ])
-      ],
-      compress: false
-    }))
+    .pipe(sass())
     .pipe(postcss([
       mdcss({
-        destination: 'build/styleguide',
+        destination: 'dist/styleguide',
         title: 'Styleguide',
         examples: {
           css: ['../css/style.css']
@@ -172,16 +147,17 @@ gulp.task('watch', () => {
   gulp.watch(srcApp.js, ['js']);
   gulp.watch(srcApp.img, ['images']);
   gulp.watch(srcApp.icons, ['icons']);
+  gulp.watch('dist/**/*').on(browserSync.reload);
 });
 
 gulp.task('browser-sync', () => {
   var files = [
-    buildApp.build
+    buildApp.dist
   ];
 
   browserSync.init(files, {
     server: {
-      baseDir: './build/'
+      baseDir: './dist/'
     },
   });
 
@@ -204,4 +180,6 @@ gulp.task('default', [
   'build',
   'watch',
   'browser-sync'
+  
 ]);
+

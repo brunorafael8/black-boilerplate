@@ -1,5 +1,5 @@
 {
-  "name": "kratos-boilerplate",
+  "name": "black-boilerplate",
   "version": "1.0.0",
   "description": "A simple and fast boilerplate for static projects using Gulp, Pug, Stylus and PostCSS",
   "repository": {
@@ -62,8 +62,8 @@
     "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^7.0.0",
     "gulp-pug": "^3.3.0",
-    "gulp-sourcemaps": "^2.6.0",
     "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.0",
     "gulp-svgmin": "^1.2.4",
     "gulp-svgstore": "^6.1.0",
     "gulp-uglify": "^3.0.0",
@@ -74,7 +74,6 @@
     "parker": "0.0.10",
     "postcss-flexibility": "^2.0.0",
     "postcss-font-magician": "^2.0.0",
-    "poststylus": "^0.2.3",
     "rucksack-css": "^0.9.1",
     "rupture": "^0.6.2",
     "stylint": "^1.5.9"

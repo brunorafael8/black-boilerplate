@@ -2,10 +2,10 @@
   <img src="https://cloud.githubusercontent.com/assets/3603793/14390922/a999424c-fd8f-11e5-8fbb-ab908a1d4740.png" width="200">
 </p>
 
-# Kratos Boilerplate
+# Bruno Rafael
 
-[![license](https://img.shields.io/github/license/LFeh/kratos-boilerplate.svg)](./license.md)
-[![GitHub contributors](https://img.shields.io/github/contributors/LFeh/kratos-boilerplate.svg)](https://github.com/LFeh/kratos-boilerplate/graphs/contributors)
+[![license](https://img.shields.io/github/license/LFeh/black-boilerplate.svg)](./license.md)
+[![GitHub contributors](https://img.shields.io/github/contributors/LFeh/black-boilerplate.svg)](https://github.com/LFeh/black-boilerplate/graphs/contributors)
 
 This project uses Pug, Stylus, Gulp and Browsersync.
 
@@ -31,8 +31,8 @@ First of all, install the dependencies to run this boilerplate.
 
 ```sh
 # Clone this repository
-$ git clone git@github.com:LFeh/kratos-boilerplate.git
-$ cd kratos-boilerplate
+$ git clone git@github.com:LFeh/black-boilerplate.git
+$ cd black-boilerplate
 
 # install gulp globally
 $ npm install -g gulp
@@ -64,14 +64,14 @@ With the commands above, you have everything to start.
 │   ├── icons/
     ├── js/
     ├── styl
-    │   ├── _core/*.styl
-    │   ├── vendors/*.styl
-    │   ├── quarks/*.styl
-    │   ├── atoms/*.styl
-    │   ├── molecules/*.styl
-    │   ├── organisms/*.styl
-    │   ├── pages/*.styl
-    │   └── style.styl
+    │   ├── _core/*.sass
+    │   ├── vendors/*.sass
+    │   ├── quarks/*.sass
+    │   ├── atoms/*.sass
+    │   ├── molecules/*.sass
+    │   ├── organisms/*.sass
+    │   ├── pages/*.sass
+    │   └── style.sass
     └── pug
         └── index.pug
 ```

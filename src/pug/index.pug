@@ -62,13 +62,13 @@ html
       //- Put your content here
       //- ==================================================
 
-      h1 #{config.title}
+      h1  #{config.title}
       p #{config.description}
 
       ul.nav
         each val in menu
           li
-            a(href=val.href, target=val.external ? '_blank' : '')= val.name
+            a( class='button' href=val.href, target=val.external ? '_blank' : '')= val.name
 
 
     //- ==================================================

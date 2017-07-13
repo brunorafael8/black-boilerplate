@@ -1,6 +1,5 @@
 {
-  "title": "Kratos Boilerplate",
-  "description": "A simple and fast boilerplate for static projects using Gulp, Pug, Stylus and PostCSS",
+  "title": "black Boilerplate",
   "mobile": {
   	"theme_color": "#ffffff",
   	"mask_icon_color": "#5bbad5"
