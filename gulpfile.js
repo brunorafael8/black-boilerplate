@@ -147,7 +147,8 @@ gulp.task('watch', () => {
   gulp.watch(srcApp.js, ['js']);
   gulp.watch(srcApp.img, ['images']);
   gulp.watch(srcApp.icons, ['icons']);
-  gulp.watch('dist/**/*').on(browserSync.reload);
+  gulp.watch('src/**/*').on('change', browserSync.reload);
+
 });
 
 gulp.task('browser-sync', () => {
